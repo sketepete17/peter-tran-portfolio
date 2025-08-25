@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Tran - Cybersecurity Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a5568;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 40px;
+            text-align: center;
+            color: #000000;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+            color: #434343;
+        }
+
+        .hero .description {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: #8d87ff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            background: white;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d3748;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 1rem auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-placeholder {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        .education-work {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-card h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card p {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        /* Compact skills chips (minimal look — only affects Skills section) */
+        #skills .skills-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 14px
+        }
+
+        #skills .skill-card {
+            background: #fff;
+            padding: 16px;
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .05)
+        }
+
+        #skills .skill-card h3 {
+            font-size: 1.05rem;
+            margin: 0 0 .5rem 0;
+            color: #1f2937
+        }
+
+        #skills .skill-chips {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: .4rem .5rem
+        }
+
+        #skills .chip {
+            background: #f3f4f6;
+            color: #1f2937;
+            border: 1px solid #e5e7eb;
+            padding: .28rem .5rem;
+            border-radius: 999px;
+            font-size: .85rem;
+            line-height: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Project Details Modal */
+        .project-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .project-modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-modal-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+        }
+
+        .project-modal-header h2 {
+            margin: 0 0 0.5rem 0;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .project-modal-header .company {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            background: none;
+            border: none;
+        }
+
+        .close-modal:hover {
+            opacity: 0.7;
+        }
+
+        .project-modal-body {
+            padding: 2rem;
+        }
+
+        .project-detail-section {
+            margin-bottom: 2rem;
+        }
+
+        .project-detail-section h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .project-detail-section p,
+        .project-detail-section ul {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .project-detail-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .project-detail-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tool-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .impact-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metric-card {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .metric-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .project-card {
+            background: #f7fafc;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Hobbies Section */
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .hobby-card {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .hobby-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hobby-card h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .hobby-card p {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-item h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: #4a5568;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .education-work {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                margin: 10px 0;
+                border-radius: 0;
+            }
+        }
+
+        /* Education & Certification Cards */
+        .education-grid,
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .education-card,
+        .cert-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.12);
+            border: 1px solid rgba(102, 126, 234, 0.15);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-card:hover,
+        .cert-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+
+        .education-card h3,
+        .cert-card h3 {
+            font-size: 1.25rem;
+            color: #1f2937;
+            margin-bottom: .5rem;
+        }
+
+        .education-card .institution {
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: .25rem;
+        }
+
+        .education-card .graduation-date {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        .cert-status {
+            font-weight: 700;
+            margin: .5rem 0 1rem;
+            text-align: center;
+        }
+
+        .cert-earned {
+            color: #10b981;
+        }
+
+        .cert-pursuing {
+            color: #f59e0b;
+        }
+
+        .education-card p,
+        .cert-card p {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Peter Tran</div>
+            <ul class="nav-links">
+                <li><a onclick="scrollToSection('about')">About</a></li>
+                <li><a onclick="scrollToSection('skills')">Skills</a></li>
+                <li><a onclick="scrollToSection('projects')">Projects</a></li>
+                <li><a onclick="scrollToSection('hobbies')">Interests</a></li>
+                <li><a onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Peter Tran's Portfolio</h1>
+                <p class="subtitle">Cybersecurity Student & IT Professional</p>
+                <a href="#contact" class="cta-button" onclick="scrollToSection('contact')">Get In Touch</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- About Section -->
+            <section id="about">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="profile-placeholder">👤</div>
+                    </div>
+                    <div class="about-text">
+                        <h3>Passionate Cybersecurity Professional</h3>
+                        <p>
+                            I'm a dedicated cybersecurity professional with extensive hands-on experience across
+                            multiple organizations
+                            including Snohomish County, Costco Wholesale, Port of Seattle, and Boeing. Currently
+                            pursuing my
+                            cybersecurity education at Western Washington University while working as a Cybersecurity IT
+                            Intern.
+                        </p>
+                        <p>
+                            With experience in incident response, vulnerability management, compliance, and penetration
+                            testing,
+                            I've contributed to significant security improvements across enterprise environments. I
+                            enjoy cyber competitions and maintain active home labs for continuous learning.
+                        </p>
+
+                        <div class="education-work">
+                            <div class="info-card">
+                                <h4>🎓 Education</h4>
+                                <p><strong>Western Washington University</strong></p>
+                                <p> B.S. Cybersecurity (WWU - Kirkland)</p>
+                                <p>Expected Graduation: June 2026</p>
+                            </div>
+                            <div class="info-card">
+                                <h4>💼 Current Role</h4>
+                                <p><strong>Snohomish County</strong></p>
+                                <p>Cybersecurity IT Intern</p>
+                                <p>May 2025 - Present</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Education -->
+            <section id="education">
+                <h2>Education</h2>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h3>B.S. — Cybersecurity</h3>
+                        <div class="institution">Western Washington University</div>
+                        <div class="graduation-date">Expected Fall 2026</div>
+                        <p> Applied cybersecurity program (community college → WWU pathway) covering secure software
+                            development, operating systems, databases, policy/compliance & risk, privacy/ethics, and
+                            core security engineering. Electives include computer forensics, penetration testing,
+                            advanced network security, cryptography, and more, culminating in a multi-quarter capstone.
+                        </p>
+                    </div>
+                    <div class="education-card">
+                        <h3>A.T.A. — Cyber Defense & Digital Forensics</h3>
+                        <div class="institution">Edmonds College</div>
+                        <div class="graduation-date">Completed 2023 with GPA 3.9+</div>
+                        <p> Technical program focused on digital forensics, incident response, malware analysis, and
+                            data recovery. Training included Windows/Linux security, network defense, penetration
+                            testing, and risk management. Articulates directly into WWU’s B.S. Cybersecurity program.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section id="certifications">
+                <h2>Certifications</h2>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <h3>Microsoft Technology Associate (MTA)</h3>
+                        <div class="cert-status cert-earned">✓ Earned — 2022</div>
+                        <p>Foundational networking, security, and Windows OS competencies.</p>
+                    </div>
+                    <div class="cert-card">
+                        <h3>CompTIA Security+</h3>
+                        <div class="cert-status cert-pursuing">🎯 In Progress</div>
+                        <p>Risk management, security operations, and defensive technologies.</p>
+                    </div>
+                </div>
+            </section>
+            </section>
+
+            <section id="skills">
+                <h2>Skills & Expertise</h2>
+
+                <div class="skills-section">
+                    <!-- Technical & Security -->
+                    <div class="skill-card">
+                        <h3>Technical &amp; Security</h3>
+                        <div class="skill-chips">
+                            <span class="chip">Incident Response</span>
+                            <span class="chip">Risk Management</span>
+                            <span class="chip">Vulnerability Assessment &amp; Management</span>
+                            <span class="chip">Penetration Testing</span>
+                            <span class="chip">Threat Hunting</span>
+                            <span class="chip">SOX Compliance</span>
+                            <span class="chip">IT General Controls</span>
+                            <span class="chip">GRC (SAP GRC)</span>
+                            <span class="chip">Data Security</span>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Platforms -->
+                    <div class="skill-card">
+                        <h3>Tools &amp; Platforms</h3>
+                        <div class="skill-chips">
+                            <span class="chip">Microsoft 365</span>
+                            <span class="chip">Google Suite</span>
+                            <span class="chip">Splunk (SIEM)</span>
+                            <span class="chip">Nmap</span>
+                            <span class="chip">Wireshark</span>
+                            <span class="chip">Metasploit</span>
+                            <span class="chip">OpenVAS</span>
+                            <span class="chip">pfSense</span>
+                            <span class="chip">Microsoft Defender</span>
+                            <span class="chip">SCCM</span>
+                            <span class="chip">Jira</span>
+                        </div>
+                    </div>
+
+                    <!-- Programming & Automation -->
+                    <div class="skill-card">
+                        <h3>Programming &amp; Automation</h3>
+                        <div class="skill-chips">
+                            <span class="chip">Python</span>
+                            <span class="chip">PowerShell</span>
+                            <span class="chip">Bash</span>
+                            <span class="chip">Java</span>
+                            <span class="chip">JavaScript</span>
+                            <span class="chip">Google Script</span>
+                            <span class="chip">Microsoft Power Automate</span>
+                        </div>
+                    </div>
+
+                    <!-- Systems & Infrastructure -->
+                    <div class="skill-card">
+                        <h3>Systems &amp; Infrastructure</h3>
+                        <div class="skill-chips">
+                            <span class="chip">Microsoft Infrastructure (Windows Server, Active Directory, Microsoft
+                                365/Azure)</span>
+                            <span class="chip">Linux/Unix Systems</span>
+                            <span class="chip">macOS Administration</span>
+                            <span class="chip">Virtualization &amp; Containers (VMware, Hyper-V, Docker,
+                                Kubernetes)</span>
+                            <span class="chip">Cloud Infrastructure</span>
+                            <span class="chip">Network Security</span>
+                            <span class="chip">IT Service Management (ITSM)</span>
+                        </div>
+                    </div>
+
+                    <!-- Business & Soft Skills -->
+                    <div class="skill-card">
+                        <h3>Business &amp; Soft Skills</h3>
+                        <div class="skill-chips">
+                            <span class="chip">Leadership</span>
+                            <span class="chip">Cross-Functional Collaboration</span>
+                            <span class="chip">Communication</span>
+                            <span class="chip">Problem-Solving</span>
+                            <span class="chip">Initiative</span>
+                            <span class="chip">Adaptability</span>
+                            <span class="chip">Attention to Detail</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2>Projects & Accomplishments</h2>
+                <div class="projects-grid">
+                    <div class="project-card" onclick="openProjectModal('project1')">
+                        <div class="project-header">
+                            <h3>Enterprise Security Infrastructure</h3>
+                            <p>Snohomish County - Current Role</p>
+                        </div>
+                        <div class="project-content">
+                            <p>
+                                Integrated and configured 100+ secure workstations using SCCM, Windows Server, and
+                                Active Directory,
+                                improving endpoint policy compliance by 25%. Managed IT assets and audit records for
+                                500+ devices
+                                while responding to 40+ security incidents.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">SCCM</span>
+                                <span class="tech-tag">Active Directory</span>
+                                <span class="tech-tag">Incident Response</span>
+                                <span class="tech-tag">Asset Management</span>
+                            </div>
+                            <p style="text-align: center; margin-top: 1rem; color: #667eea; font-weight: 500;">Click to
+                                view details →</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="openProjectModal('project2')">
+                        <div class="project-header">
+                            <h3>SOX Compliance & IT General Controls</h3>
+                            <p>Costco Wholesale Corporation</p>
+                        </div>
+                        <div class="project-content">
+                            <p>
+                                Implemented IT General Controls within SAP GRC to meet SOX requirements, contributing to
+                                100% audit success.
+                                Automated compliance workflows using Google Scripts, improving reporting efficiency by
+                                20% and reducing
+                                manual audit preparation.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">SAP GRC</span>
+                                <span class="tech-tag">SOX Compliance</span>
+                                <span class="tech-tag">Google Scripts</span>
+                                <span class="tech-tag">Process Automation</span>
+                            </div>
+                            <p style="text-align: center; margin-top: 1rem; color: #667eea; font-weight: 500;">Click to
+                                view details →</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="openProjectModal('project3')">
+                        <div class="project-header">
+                            <h3>Ransomware Incident Response</h3>
+                            <p>Port of Seattle</p>
+                        </div>
+                        <div class="project-content">
+                            <p>
+                                Assisted in major ransomware incident response, analyzing compromised systems and
+                                supporting threat hunting.
+                                Investigated EDR alerts and conducted vulnerability management, reducing potential
+                                attack surfaces by 15%.
+                                Designed custom GRC dashboards for enterprise risk tracking.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Incident Response</span>
+                                <span class="tech-tag">Threat Hunting</span>
+                                <span class="tech-tag">EDR Analysis</span>
+                                <span class="tech-tag">GRC Dashboards</span>
+                            </div>
+                            <p style="text-align: center; margin-top: 1rem; color: #667eea; font-weight: 500;">Click to
+                                view details →</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="openProjectModal('project4')">
+                        <div class="project-header">
+                            <h3>Home Cybersecurity Lab</h3>
+                            <p>Personal Project - 2017-Present</p>
+                        </div>
+                        <div class="project-content">
+                            <p>
+                                Built comprehensive home lab simulating enterprise environments with Splunk SIEM,
+                                pfSense firewall,
+                                OpenVAS vulnerability scanning, Wireshark packet analysis, and Active Directory.
+                                Researched wireless
+                                security tools including Flipper Zero for ethical testing.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Splunk</span>
+                                <span class="tech-tag">pfSense</span>
+                                <span class="tech-tag">OpenVAS</span>
+                                <span class="tech-tag">Wireshark</span>
+                                <span class="tech-tag">Active Directory</span>
+                            </div>
+                            <p style="text-align: center; margin-top: 1rem; color: #667eea; font-weight: 500;">Click to
+                                view details →</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="openProjectModal('project5')">
+                        <div class="project-header">
+                            <h3>Competitive Cybersecurity (CTFs)</h3>
+                            <p>National Cyber League - 91st Percentile</p>
+                        </div>
+                        <div class="project-content">
+                            <p>
+                                Ranked in 91st percentile in National Cyber League competitions. Completed challenges
+                                across
+                                TryHackMe and Hack the Box platforms, applying incident response, log analysis, system
+                                exploitation,
+                                and network defense skills in competitive environments.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">CTF Competitions</span>
+                                <span class="tech-tag">Log Analysis</span>
+                                <span class="tech-tag">System Exploitation</span>
+                                <span class="tech-tag">Network Defense</span>
+                            </div>
+                            <p style="text-align: center; margin-top: 1rem; color: #667eea; font-weight: 500;">Click to
+                                view details →</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card" onclick="openProjectModal('project6')">
+                        <div class="project-header">
+                            <h3>Penetration Testing Program</h3>
+                            <p>Cybersecurity Academy</p>
+                        </div>
+                        <div class="project-content">
+                            <p>
+                                Conducted penetration tests identifying critical vulnerabilities and reducing
+                                organizational attack
+                                surfaces by 20%. Collaborated with IT teams to implement security controls and performed
+                                ethical
+                                hacking assessments following industry best practices.
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Penetration Testing</span>
+                                <span class="tech-tag">Vulnerability Assessment</span>
+                                <span class="tech-tag">Ethical Hacking</span>
+                                <span class="tech-tag">Security Controls</span>
+                            </div>
+                            <p style="text-align: center; margin-top: 1rem; color: #667eea; font-weight: 500;">Click to
+                                view details →</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Modals -->
+                <div id="project1" class="project-modal">
+                    <div class="project-modal-content">
+                        <div class="project-modal-header">
+                            <button class="close-modal" onclick="closeProjectModal('project1')">&times;</button>
+                            <h2>Enterprise Security Infrastructure</h2>
+                            <p class="company">Snohomish County - Cybersecurity IT Intern (May 2025 - Present)</p>
+                        </div>
+                        <div class="project-modal-body">
+                            <div class="project-detail-section">
+                                <h3>🎯 Objective</h3>
+                                <p>Modernize and secure the county's IT infrastructure by deploying standardized
+                                    workstation configurations, improving security compliance, and establishing robust
+                                    asset management processes to enhance the overall security posture.</p>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>⚡ What I Did</h3>
+                                <ul>
+                                    <li>Configured and deployed 100+ secure workstations using SCCM for automated
+                                        software deployment and patch management</li>
+                                    <li>Integrated workstations with Windows Server and Active Directory for centralized
+                                        authentication and policy enforcement</li>
+                                    <li>Implemented Microsoft 365 security configurations and compliance policies across
+                                        all endpoints</li>
+                                    <li>Responded to and triaged 40+ security incidents including malware infections,
+                                        policy violations, and hardware issues</li>
+                                    <li>Maintained comprehensive IT asset inventory and audit documentation for 500+
+                                        devices</li>
+                                    <li>Collaborated with cross-functional IT teams to deploy system upgrades and
+                                        network security controls</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>🛠️ Tools & Technologies Used</h3>
+                                <div class="tools-list">
+                                    <span class="tool-tag">Microsoft SCCM</span>
+                                    <span class="tool-tag">Windows Server</span>
+                                    <span class="tool-tag">Active Directory</span>
+                                    <span class="tool-tag">Microsoft 365</span>
+                                    <span class="tool-tag">PowerShell</span>
+                                    <span class="tool-tag">Group Policy</span>
+                                    <span class="tool-tag">Asset Management Systems</span>
+                                    <span class="tool-tag">Incident Response Tools</span>
+                                </div>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>📊 Measurable Impact</h3>
+                                <div class="impact-metrics">
+                                    <div class="metric-card">
+                                        <div class="metric-number">25%</div>
+                                        <div class="metric-label">Improvement in Endpoint Policy Compliance</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">30%</div>
+                                        <div class="metric-label">Reduction in System Downtime</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">20%</div>
+                                        <div class="metric-label">Faster Upgrade Deployment Times</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">100+</div>
+                                        <div class="metric-label">Secure Workstations Deployed</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="project2" class="project-modal">
+                    <div class="project-modal-content">
+                        <div class="project-modal-header">
+                            <button class="close-modal" onclick="closeProjectModal('project2')">&times;</button>
+                            <h2>SOX Compliance & IT General Controls</h2>
+                            <p class="company">Costco Wholesale Corporation - SAP GRC Intern (Jan 2025 - April 2025)</p>
+                        </div>
+                        <div class="project-modal-body">
+                            <div class="project-detail-section">
+                                <h3>🎯 Objective</h3>
+                                <p>Implement and maintain IT General Controls (ITGC) within SAP GRC to ensure SOX
+                                    compliance, improve audit readiness, and automate compliance workflows to reduce
+                                    manual effort while maintaining 100% audit success rate.</p>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>⚡ What I Did</h3>
+                                <ul>
+                                    <li>Implemented comprehensive IT General Controls framework within SAP GRC system
+                                    </li>
+                                    <li>Designed and configured automated compliance workflows to streamline audit
+                                        processes</li>
+                                    <li>Developed Google Scripts and Excel automation tools for compliance reporting
+                                    </li>
+                                    <li>Researched and documented SAP security best practices and control frameworks
+                                    </li>
+                                    <li>Identified process improvements to strengthen information security governance
+                                    </li>
+                                    <li>Collaborated with audit teams to ensure all SOX requirements were met</li>
+                                    <li>Gained hands-on experience with cloud security, IAM, and network architecture
+                                        principles</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>🛠️ Tools & Technologies Used</h3>
+                                <div class="tools-list">
+                                    <span class="tool-tag">SAP GRC</span>
+                                    <span class="tool-tag">Google Scripts</span>
+                                    <span class="tool-tag">Microsoft Excel</span>
+                                    <span class="tool-tag">SOX Framework</span>
+                                    <span class="tool-tag">Process Automation</span>
+                                    <span class="tool-tag">Compliance Reporting</span>
+                                    <span class="tool-tag">Risk Assessment</span>
+                                    <span class="tool-tag">Documentation Tools</span>
+                                </div>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>📊 Measurable Impact</h3>
+                                <div class="impact-metrics">
+                                    <div class="metric-card">
+                                        <div class="metric-number">100%</div>
+                                        <div class="metric-label">SOX Audit Success Rate</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">20%</div>
+                                        <div class="metric-label">Improvement in Reporting Efficiency</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">50%</div>
+                                        <div class="metric-label">Reduction in Manual Audit Prep</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">15+</div>
+                                        <div class="metric-label">Automated Workflows Created</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="project3" class="project-modal">
+                    <div class="project-modal-content">
+                        <div class="project-modal-header">
+                            <button class="close-modal" onclick="closeProjectModal('project3')">&times;</button>
+                            <h2>Ransomware Incident Response</h2>
+                            <p class="company">Port of Seattle - Information Security Analyst Intern (Dec 2023 - Dec
+                                2024)</p>
+                        </div>
+                        <div class="project-modal-body">
+                            <div class="project-detail-section">
+                                <h3>🎯 Objective</h3>
+                                <p>Support critical ransomware incident response efforts to minimize business impact,
+                                    contain threats, and strengthen the organization's security posture through improved
+                                    detection capabilities and risk management processes.</p>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>⚡ What I Did</h3>
+                                <ul>
+                                    <li>Assisted in analyzing compromised systems during major ransomware incident
+                                        response</li>
+                                    <li>Supported threat hunting activities to identify indicators of compromise (IoCs)
+                                    </li>
+                                    <li>Investigated and triaged EDR (Endpoint Detection and Response) alerts</li>
+                                    <li>Conducted comprehensive vulnerability assessments and management</li>
+                                    <li>Designed and deployed custom GRC dashboards for risk visualization</li>
+                                    <li>Implemented workflows for better enterprise risk and compliance tracking</li>
+                                    <li>Documented incident response procedures and lessons learned</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>🛠️ Tools & Technologies Used</h3>
+                                <div class="tools-list">
+                                    <span class="tool-tag">EDR Platforms</span>
+                                    <span class="tool-tag">SIEM Tools</span>
+                                    <span class="tool-tag">Threat Hunting Tools</span>
+                                    <span class="tool-tag">Vulnerability Scanners</span>
+                                    <span class="tool-tag">GRC Dashboards</span>
+                                    <span class="tool-tag">Incident Response Platforms</span>
+                                    <span class="tool-tag">Digital Forensics Tools</span>
+                                    <span class="tool-tag">Risk Assessment Tools</span>
+                                </div>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>📊 Measurable Impact</h3>
+                                <div class="impact-metrics">
+                                    <div class="metric-card">
+                                        <div class="metric-number">15%</div>
+                                        <div class="metric-label">Reduction in Attack Surface</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">24/7</div>
+                                        <div class="metric-label">Incident Response Support</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">100+</div>
+                                        <div class="metric-label">EDR Alerts Investigated</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">5+</div>
+                                        <div class="metric-label">Custom GRC Dashboards</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="project4" class="project-modal">
+                    <div class="project-modal-content">
+                        <div class="project-modal-header">
+                            <button class="close-modal" onclick="closeProjectModal('project4')">&times;</button>
+                            <h2>Home Cybersecurity Lab</h2>
+                            <p class="company">Personal Project (2017 - Present)</p>
+                        </div>
+                        <div class="project-modal-body">
+                            <div class="project-detail-section">
+                                <h3>🎯 Objective</h3>
+                                <p>Build a comprehensive home laboratory environment that simulates enterprise
+                                    cybersecurity infrastructure to develop hands-on skills, test security tools, and
+                                    stay current with emerging threats and defensive technologies.</p>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>⚡ What I Did</h3>
+                                <ul>
+                                    <li>Designed and built multi-segmented network architecture using pfSense firewall
+                                    </li>
+                                    <li>Deployed Splunk SIEM for log aggregation, analysis, and threat detection</li>
+                                    <li>Implemented OpenVAS for automated vulnerability scanning and assessment</li>
+                                    <li>Set up Active Directory domain with multiple organizational units and security
+                                        policies</li>
+                                    <li>Configured Wireshark for network packet analysis and traffic monitoring</li>
+                                    <li>Built and maintained custom PCs with various operating systems (Windows, Linux
+                                        distributions)</li>
+                                    <li>Researched wireless security using tools like Flipper Zero for ethical
+                                        penetration testing</li>
+                                    <li>Regularly updated and expanded lab capabilities with new security tools and
+                                        technologies</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>🛠️ Tools & Technologies Used</h3>
+                                <div class="tools-list">
+                                    <span class="tool-tag">Splunk SIEM</span>
+                                    <span class="tool-tag">pfSense Firewall</span>
+                                    <span class="tool-tag">OpenVAS</span>
+                                    <span class="tool-tag">Wireshark</span>
+                                    <span class="tool-tag">Active Directory</span>
+                                    <span class="tool-tag">VMware/VirtualBox</span>
+                                    <span class="tool-tag">Kali Linux</span>
+                                    <span class="tool-tag">Windows Server</span>
+                                    <span class="tool-tag">Flipper Zero</span>
+                                    <span class="tool-tag">Metasploit</span>
+                                </div>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>📊 Measurable Impact</h3>
+                                <div class="impact-metrics">
+                                    <div class="metric-card">
+                                        <div class="metric-number">8+</div>
+                                        <div class="metric-label">Years of Continuous Learning</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">50+</div>
+                                        <div class="metric-label">Security Tools Tested</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">10+</div>
+                                        <div class="metric-label">VMs in Production</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">24/7</div>
+                                        <div class="metric-label">Lab Availability</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="project5" class="project-modal">
+                    <div class="project-modal-content">
+                        <div class="project-modal-header">
+                            <button class="close-modal" onclick="closeProjectModal('project5')">&times;</button>
+                            <h2>Competitive Cybersecurity (CTFs)</h2>
+                            <p class="company">National Cyber League & Online Platforms (Aug 2024 - Present)</p>
+                        </div>
+                        <div class="project-modal-body">
+                            <div class="project-detail-section">
+                                <h3>🎯 Objective</h3>
+                                <p>Develop and demonstrate advanced cybersecurity skills through competitive
+                                    capture-the-flag (CTF) challenges, ranking among top performers nationally while
+                                    building practical experience in incident response, digital forensics, and ethical
+                                    hacking.</p>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>⚡ What I Did</h3>
+                                <ul>
+                                    <li>Achieved 91st percentile ranking in National Cyber League competitions</li>
+                                    <li>Completed advanced challenges in incident response and digital forensics</li>
+                                    <li>Performed log analysis to identify security incidents and attack patterns</li>
+                                    <li>Executed system exploitation techniques for vulnerability assessment</li>
+                                    <li>Implemented network defense strategies and countermeasures</li>
+                                    <li>Participated in TryHackMe and Hack the Box platforms for continuous skill
+                                        development</li>
+                                    <li>Collaborated with team members on complex multi-stage security challenges</li>
+                                    <li>Documented solutions and techniques for knowledge sharing</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>🛠️ Tools & Technologies Used</h3>
+                                <div class="tools-list">
+                                    <span class="tool-tag">Wireshark</span>
+                                    <span class="tool-tag">Nmap</span>
+                                    <span class="tool-tag">Metasploit</span>
+                                    <span class="tool-tag">Burp Suite</span>
+                                    <span class="tool-tag">John the Ripper</span>
+                                    <span class="tool-tag">Hashcat</span>
+                                    <span class="tool-tag">Ghidra</span>
+                                    <span class="tool-tag">Volatility</span>
+                                    <span class="tool-tag">Autopsy</span>
+                                    <span class="tool-tag">YARA Rules</span>
+                                </div>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>📊 Measurable Impact</h3>
+                                <div class="impact-metrics">
+                                    <div class="metric-card">
+                                        <div class="metric-number">91st</div>
+                                        <div class="metric-label">Percentile NCL Ranking</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">100+</div>
+                                        <div class="metric-label">CTF Challenges Completed</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">3</div>
+                                        <div class="metric-label">Competition Platforms</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">500+</div>
+                                        <div class="metric-label">Hours of Practice</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="project6" class="project-modal">
+                    <div class="project-modal-content">
+                        <div class="project-modal-header">
+                            <button class="close-modal" onclick="closeProjectModal('project6')">&times;</button>
+                            <h2>Penetration Testing Program</h2>
+                            <p class="company">Cybersecurity Academy (Sep 2022 - Jan 2023)</p>
+                        </div>
+                        <div class="project-modal-body">
+                            <div class="project-detail-section">
+                                <h3>🎯 Objective</h3>
+                                <p>Develop professional penetration testing skills through structured ethical hacking
+                                    assessments, identifying critical vulnerabilities in target systems while adhering
+                                    to industry best practices and responsible disclosure principles.</p>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>⚡ What I Did</h3>
+                                <ul>
+                                    <li>Conducted comprehensive penetration tests on designated target systems</li>
+                                    <li>Identified and documented critical vulnerabilities using systematic testing
+                                        methodologies</li>
+                                    <li>Performed network reconnaissance and vulnerability assessment</li>
+                                    <li>Executed ethical hacking techniques following industry-standard frameworks</li>
+                                    <li>Collaborated with IT teams to implement effective security controls</li>
+                                    <li>Ensured strict adherence to security policies and responsible disclosure
+                                        practices</li>
+                                    <li>Created detailed reports with risk assessments and remediation recommendations
+                                    </li>
+                                    <li>Contributed to security awareness training and knowledge sharing initiatives
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>🛠️ Tools & Technologies Used</h3>
+                                <div class="tools-list">
+                                    <span class="tool-tag">Kali Linux</span>
+                                    <span class="tool-tag">Nmap</span>
+                                    <span class="tool-tag">Metasploit</span>
+                                    <span class="tool-tag">Burp Suite</span>
+                                    <span class="tool-tag">OWASP ZAP</span>
+                                    <span class="tool-tag">Nikto</span>
+                                    <span class="tool-tag">Nessus</span>
+                                    <span class="tool-tag">Wireshark</span>
+                                    <span class="tool-tag">Social Engineering Toolkit</span>
+                                    <span class="tool-tag">Report Writing Tools</span>
+                                </div>
+                            </div>
+
+                            <div class="project-detail-section">
+                                <h3>📊 Measurable Impact</h3>
+                                <div class="impact-metrics">
+                                    <div class="metric-card">
+                                        <div class="metric-number">20%</div>
+                                        <div class="metric-label">Reduction in Attack Surface</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">25+</div>
+                                        <div class="metric-label">Vulnerabilities Identified</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">10+</div>
+                                        <div class="metric-label">Security Controls Implemented</div>
+                                    </div>
+                                    <div class="metric-card">
+                                        <div class="metric-number">100%</div>
+                                        <div class="metric-label">Ethical Standards Compliance</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hobbies & Interests Section -->
+            <section id="hobbies">
+                <h2>Hobbies & Interests</h2>
+                <div class="hobbies-grid">
+                    <div class="hobby-card">
+                        <div class="hobby-icon">📈</div>
+                        <h3>Trading & Market Analysis</h3>
+                        <p>Actively trade and analyze financial markets while staying current with global news and
+                            economic trends. This keeps me sharp with data analysis, pattern recognition, and risk
+                            assessment skills that translate well to cybersecurity.</p>
+                    </div>
+                    <div class="hobby-card">
+                        <div class="hobby-icon">🌍</div>
+                        <h3>Travel & Cultural Exploration</h3>
+                        <p>Passionate about traveling and immersing myself in new cultures, especially through their
+                            cuisine. Love exploring different foods and learning about diverse traditions, which
+                            broadens my perspective and adaptability.</p>
+                    </div>
+                    <div class="hobby-card">
+                        <div class="hobby-icon">🏀</div>
+                        <h3>Basketball & Racquet Sports</h3>
+                        <p>Passionate about basketball, tennis, and pickleball. Love the strategic thinking and quick
+                            decision-making these sports require. Even challenged myself with my first half marathon in
+                            2024 (with minimal training - don't do what I did!).</p>
+                    </div>
+                    <div class="hobby-card">
+                        <div class="hobby-icon">🛠️</div>
+                        <h3>Hardware Tinkering</h3>
+                        <p>Love taking apart and rebuilding systems to understand how they work. This hands-on approach
+                            has strengthened my troubleshooting skills and deepened my understanding of system
+                            vulnerabilities.</p>
+                    </div>
+                    <div class="hobby-card">
+                        <div class="hobby-icon">📚</div>
+                        <h3>Continuous Learning</h3>
+                        <p>Always exploring new cybersecurity trends, attending virtual conferences, and participating
+                            in online communities. Enjoy reading about emerging threats and innovative security
+                            solutions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Get In Touch</h2>
+                <div class="contact-content">
+                    <p>
+                        I'm always interested in discussing cybersecurity opportunities,
+                        collaborating on projects, or connecting with fellow professionals in the field.
+                    </p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h4>📧 Email</h4>
+                            <p>tranp9@wwu.edu</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>💼 LinkedIn</h4>
+                            <p>www.linkedin.com/in/tranpeter17</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>📱 Phone</h4>
+                            <p>(425) 516-2273</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Peter Tran. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openProjectModal(projectId) {
+            document.getElementById(projectId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal(projectId) {
+            document.getElementById(projectId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            if (event.target.classList.contains('project-modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+
+</html>
